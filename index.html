@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body >       
+    <div class="parent" >
+        <div class="result">
+            <input type="text" id="query"> 
+            <input type="text" id="result">     
+        </div>             
+        <button class="child blue" onclick="display('(')">(</button>
+        <button class="child blue" onclick="display(')')">)</button>
+        <button class="child blue" onclick="equate()">ans</button>
+        <button class="child blue" onclick="trim()">del</button>
+        <button class="child blue" onclick="clr()">clear</button>
+
+        <button class="child light-blue" onclick="display('7')">7</button>
+        <button class="child light-blue" onclick="display('8')">8</button>
+        <button class="child light-blue" onclick="display('9')">9</button>
+        <button class="child blue" onclick="display('%')">%</button>
+        <button class="child blue" onclick="display('√')">√</button>
+          
+        <button class="child light-blue" onclick="display('4')">4</button>
+        <button class="child light-blue" onclick="display('5')">5</button>
+        <button class="child light-blue" onclick="display('6')">6</button>
+        <button class="child blue" onclick="display('*')">×</button>
+        <button class="child blue" onclick="display('/')">÷</button>
+            
+        <button class="child light-blue" onclick="display('1')">1</button>
+        <button class="child light-blue" onclick="display('2')">2</button>
+        <button class="child light-blue" onclick="display('3')">3</button>
+        <button class="child blue" onclick="display('+')">+</button>
+        <button class="child blue" onclick="display('-')">-</button>
+            
+        <button class="child blue" onclick="display('.')">.</button>
+        <button class="child light-blue" onclick="display('0')">0</button>
+        <button class="child blue" onclick="display('±')">±</button>
+        <button class="child dark-blue" onclick="equate()">ENTER</button>
+    </div>
+    <script>       
+        function trim() {
+            let str = document.getElementById("result").value
+            document.getElementById("result").value = str.slice(0, -1)
+        }
+        function clr() {
+            document.getElementById("result").value = "";
+            document.getElementById("query").value = "";
+        }
+        function display(val) {            
+            document.getElementById("result").value += val;
+        }
+        function equate() {
+            let str = document.getElementById("result").value;
+            document.getElementById("query").value = str;
+            document.getElementById("result").value = eval(str);
+        }
+    </script>
+</body>
+
+</html>
